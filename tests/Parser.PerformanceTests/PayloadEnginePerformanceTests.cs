@@ -53,6 +53,7 @@ public sealed class PayloadEnginePerformanceTests
             }
 
             Assert.Equal(250, metrics.ProcessedCount);
+            Assert.Equal(0, metrics.FailedCount);
         }
         finally
         {
