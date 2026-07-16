@@ -1,0 +1,21 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <AssemblyName>Parser.Hosting</AssemblyName>
+    <RootNamespace>Parser.Hosting</RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Parser.Abstractions\Parser.Abstractions.csproj" />
+    <ProjectReference Include="..\Parser.Core\Parser.Core.csproj" />
+    <ProjectReference Include="..\Parser.Plugins.BuiltIn\Parser.Plugins.BuiltIn.csproj" />
+    <ProjectReference Include="..\Parser.Storage.Sqlite\Parser.Storage.Sqlite.csproj" />
+    <ProjectReference Include="..\Parser.ProtocolAdapters.Mqtt\Parser.ProtocolAdapters.Mqtt.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Extensions.Configuration.Binder" Version="8.0.2" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="8.0.1" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="8.0.1" />
+    <PackageReference Include="Microsoft.Extensions.Hosting" Version="8.0.1" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Console" Version="8.0.1" />
+    <PackageReference Include="Microsoft.Extensions.Options.ConfigurationExtensions" Version="8.0.0" />
+  </ItemGroup>
+</Project>

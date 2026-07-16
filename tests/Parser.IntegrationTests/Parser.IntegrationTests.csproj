@@ -1,0 +1,28 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <IsPackable>false</IsPackable>
+    <IsTestProject>true</IsTestProject>
+    <AssemblyName>Parser.IntegrationTests</AssemblyName>
+    <RootNamespace>Parser.IntegrationTests</RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="coverlet.collector" Version="6.0.2">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.10.0" />
+    <PackageReference Include="xunit" Version="2.9.0" />
+    <PackageReference Include="xunit.runner.visualstudio" Version="2.8.2">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\Parser.Abstractions\Parser.Abstractions.csproj" />
+    <ProjectReference Include="..\..\src\Parser.Core\Parser.Core.csproj" />
+    <ProjectReference Include="..\..\src\Parser.Plugins.BuiltIn\Parser.Plugins.BuiltIn.csproj" />
+    <ProjectReference Include="..\..\src\Parser.Storage.Sqlite\Parser.Storage.Sqlite.csproj" />
+    <ProjectReference Include="..\..\src\Parser.Hosting\Parser.Hosting.csproj" />
+    <ProjectReference Include="..\..\src\Parser.SamplePlugin\Parser.SamplePlugin.csproj" />
+  </ItemGroup>
+</Project>

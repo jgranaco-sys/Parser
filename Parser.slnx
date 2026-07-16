@@ -1,0 +1,17 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/Parser.Abstractions/Parser.Abstractions.csproj" />
+    <Project Path="src/Parser.App/Parser.App.csproj" />
+    <Project Path="src/Parser.Core/Parser.Core.csproj" />
+    <Project Path="src/Parser.Hosting/Parser.Hosting.csproj" />
+    <Project Path="src/Parser.Plugins.BuiltIn/Parser.Plugins.BuiltIn.csproj" />
+    <Project Path="src/Parser.ProtocolAdapters.Mqtt/Parser.ProtocolAdapters.Mqtt.csproj" />
+    <Project Path="src/Parser.SamplePlugin/Parser.SamplePlugin.csproj" />
+    <Project Path="src/Parser.Storage.Sqlite/Parser.Storage.Sqlite.csproj" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/Parser.IntegrationTests/Parser.IntegrationTests.csproj" />
+    <Project Path="tests/Parser.PerformanceTests/Parser.PerformanceTests.csproj" />
+    <Project Path="tests/Parser.UnitTests/Parser.UnitTests.csproj" />
+  </Folder>
+</Solution>

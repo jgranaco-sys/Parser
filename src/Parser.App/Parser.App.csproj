@@ -1,0 +1,21 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <AssemblyName>Parser.App</AssemblyName>
+    <RootNamespace>Parser.App</RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Parser.Hosting\Parser.Hosting.csproj" />
+    <ProjectReference Include="..\Parser.SamplePlugin\Parser.SamplePlugin.csproj" ReferenceOutputAssembly="false" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Extensions.Hosting" Version="8.0.1" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Update="appsettings.json" CopyToOutputDirectory="PreserveNewest" />
+  </ItemGroup>
+  <Target Name="CopySamplePlugin" AfterTargets="Build">
+    <MakeDir Directories="$(OutDir)plugins" />
+    <Copy SourceFiles="$(MSBuildProjectDirectory)\..\Parser.SamplePlugin\bin\$(Configuration)\net8.0\Parser.SamplePlugin.dll" DestinationFolder="$(OutDir)plugins" SkipUnchangedFiles="true" Condition="Exists('$(MSBuildProjectDirectory)\..\Parser.SamplePlugin\bin\$(Configuration)\net8.0\Parser.SamplePlugin.dll')" />
+  </Target>
+</Project>
