@@ -1,0 +1,11 @@
+global using System.Globalization;
+global using System.Text;
+global using System.Text.Json;
+global using CsvHelper;
+global using Microsoft.Extensions.DependencyInjection;
+global using Parser.Abstractions;
+global using Parser.Abstractions.Contracts;
+global using Parser.Core.Mapping;
+global using Parser.Core.Template;
+global using Parser.Core.Transformations;
+global using Parser.Core.Validation;
