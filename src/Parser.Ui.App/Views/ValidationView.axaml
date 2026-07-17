@@ -1,0 +1,26 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:vm="clr-namespace:Parser.Ui.Core.ViewModels;assembly=Parser.Ui.Core"
+             x:Class="Parser.Ui.App.Views.ValidationView"
+             x:DataType="vm:ValidationViewModel">
+    <DockPanel>
+        <StackPanel DockPanel.Dock="Top" Orientation="Horizontal" Spacing="8" Margin="0,0,0,12">
+            <TextBlock Text="Validation Rules" FontSize="22" FontWeight="Bold" VerticalAlignment="Center" />
+            <Button Content="Add Rule" Command="{Binding AddRuleCommand}" />
+            <Button Content="Delete Selected" Command="{Binding DeleteRuleCommand}" />
+        </StackPanel>
+
+        <DataGrid ItemsSource="{Binding Rules}"
+                  SelectedItem="{Binding SelectedRule}"
+                  AutoGenerateColumns="False"
+                  GridLinesVisibility="All"
+                  IsReadOnly="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Field Name" Binding="{Binding FieldName}" Width="*" />
+                <DataGridTextColumn Header="Rule Type" Binding="{Binding RuleType}" Width="140" />
+                <DataGridTextColumn Header="Parameters" Binding="{Binding Parameters}" Width="*" />
+                <DataGridTextColumn Header="Missing Behavior" Binding="{Binding MissingBehavior}" Width="140" />
+            </DataGrid.Columns>
+        </DataGrid>
+    </DockPanel>
+</UserControl>

@@ -1,0 +1,8 @@
+<Solution>
+  <Project Path="src/Parser.Core/Parser.Core.csproj" />
+  <Project Path="src/Parser.Ui.Infrastructure/Parser.Ui.Infrastructure.csproj" />
+  <Project Path="src/Parser.Ui.Core/Parser.Ui.Core.csproj" />
+  <Project Path="src/Parser.Ui.Controls/Parser.Ui.Controls.csproj" />
+  <Project Path="src/Parser.Ui.App/Parser.Ui.App.csproj" />
+  <Project Path="tests/Parser.Ui.Tests/Parser.Ui.Tests.csproj" />
+</Solution>

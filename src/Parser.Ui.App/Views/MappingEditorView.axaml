@@ -1,0 +1,28 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:vm="clr-namespace:Parser.Ui.Core.ViewModels;assembly=Parser.Ui.Core"
+             x:Class="Parser.Ui.App.Views.MappingEditorView"
+             x:DataType="vm:MappingEditorViewModel">
+    <DockPanel>
+        <StackPanel DockPanel.Dock="Top" Orientation="Horizontal" Spacing="8" Margin="0,0,0,12">
+            <TextBlock Text="Mapping Editor" FontSize="22" FontWeight="Bold" VerticalAlignment="Center" />
+            <Button Content="Add Mapping" Command="{Binding AddMappingCommand}" />
+            <Button Content="Delete Selected" Command="{Binding DeleteMappingCommand}" />
+            <TextBox Watermark="Filter..." Text="{Binding FilterText}" Width="200" />
+        </StackPanel>
+
+        <DataGrid ItemsSource="{Binding Mappings}"
+                  SelectedItem="{Binding SelectedMapping}"
+                  AutoGenerateColumns="False"
+                  GridLinesVisibility="All"
+                  IsReadOnly="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Incoming Field" Binding="{Binding IncomingField}" Width="*" />
+                <DataGridTextColumn Header="SCADA Variable" Binding="{Binding ScadaVariable}" Width="*" />
+                <DataGridTextColumn Header="Data Type" Binding="{Binding DataType}" Width="120" />
+                <DataGridTextColumn Header="Transform" Binding="{Binding Transform}" Width="*" />
+                <DataGridTextColumn Header="Status" Binding="{Binding Status}" Width="100" />
+            </DataGrid.Columns>
+        </DataGrid>
+    </DockPanel>
+</UserControl>

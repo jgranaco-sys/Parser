@@ -1,0 +1,34 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:vm="clr-namespace:Parser.Ui.Core.ViewModels;assembly=Parser.Ui.Core"
+             x:Class="Parser.Ui.App.Views.SettingsView"
+             x:DataType="vm:SettingsViewModel">
+    <StackPanel Spacing="12" MaxWidth="480">
+        <TextBlock Text="Settings" FontSize="22" FontWeight="Bold" />
+
+        <StackPanel Spacing="4">
+            <TextBlock Text="Theme" />
+            <StackPanel Orientation="Horizontal" Spacing="8">
+                <TextBlock Text="{Binding Theme}" VerticalAlignment="Center" />
+                <Button Content="Toggle" Command="{Binding ToggleThemeCommand}" />
+            </StackPanel>
+        </StackPanel>
+
+        <StackPanel Spacing="4">
+            <TextBlock Text="Language" />
+            <ComboBox ItemsSource="{Binding AvailableLanguages}" SelectedItem="{Binding Language}" Width="200" />
+        </StackPanel>
+
+        <CheckBox Content="Autosave" IsChecked="{Binding Autosave}" />
+
+        <StackPanel Spacing="4">
+            <TextBlock Text="Logging Level" />
+            <ComboBox ItemsSource="{Binding AvailableLoggingLevels}" SelectedItem="{Binding LoggingLevel}" Width="200" />
+        </StackPanel>
+
+        <CheckBox Content="Performance Mode" IsChecked="{Binding PerformanceMode}" />
+
+        <Button Content="Save" Command="{Binding SaveCommand}" HorizontalAlignment="Left" />
+        <TextBlock Text="Saved!" IsVisible="{Binding IsSaved}" Foreground="Green" />
+    </StackPanel>
+</UserControl>

@@ -1,0 +1,32 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:vm="clr-namespace:Parser.Ui.Core.ViewModels;assembly=Parser.Ui.Core"
+             x:Class="Parser.Ui.App.Views.TemplateEditorView"
+             x:DataType="vm:TemplateEditorViewModel">
+    <DockPanel>
+        <StackPanel DockPanel.Dock="Top" Orientation="Horizontal" Spacing="8" Margin="0,0,0,12">
+            <TextBlock Text="Template Editor" FontSize="22" FontWeight="Bold" VerticalAlignment="Center" />
+            <ComboBox ItemsSource="{Binding Templates}" SelectedItem="{Binding SelectedTemplate}" DisplayMemberBinding="{Binding Name}" Width="200" />
+            <Button Content="Save" Command="{Binding SaveTemplateCommand}" />
+        </StackPanel>
+
+        <Grid ColumnDefinitions="*,*">
+            <DockPanel Grid.Column="0" Margin="0,0,8,0">
+                <TextBlock DockPanel.Dock="Top" Text="Template" FontWeight="SemiBold" />
+                <TextBox AcceptsReturn="True"
+                         AcceptsTab="True"
+                         TextWrapping="NoWrap"
+                         FontFamily="Consolas,Cascadia Code,monospace"
+                         Text="{Binding TemplateContent}" />
+            </DockPanel>
+            <DockPanel Grid.Column="1" Margin="8,0,0,0">
+                <TextBlock DockPanel.Dock="Top" Text="Preview" FontWeight="SemiBold" />
+                <TextBox AcceptsReturn="True"
+                         IsReadOnly="True"
+                         TextWrapping="NoWrap"
+                         FontFamily="Consolas,Cascadia Code,monospace"
+                         Text="{Binding PreviewContent}" />
+            </DockPanel>
+        </Grid>
+    </DockPanel>
+</UserControl>

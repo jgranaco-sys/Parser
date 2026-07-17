@@ -1,0 +1,27 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:vm="clr-namespace:Parser.Ui.Core.ViewModels;assembly=Parser.Ui.Core"
+             x:Class="Parser.Ui.App.Views.TransformationsView"
+             x:DataType="vm:TransformationsViewModel">
+    <DockPanel>
+        <StackPanel DockPanel.Dock="Top" Orientation="Horizontal" Spacing="8" Margin="0,0,0,12">
+            <TextBlock Text="Transformations" FontSize="22" FontWeight="Bold" VerticalAlignment="Center" />
+            <Button Content="Add Rule" Command="{Binding AddRuleCommand}" />
+            <Button Content="Delete Selected" Command="{Binding DeleteRuleCommand}" />
+        </StackPanel>
+
+        <DataGrid ItemsSource="{Binding Rules}"
+                  SelectedItem="{Binding SelectedRule}"
+                  AutoGenerateColumns="False"
+                  GridLinesVisibility="All"
+                  IsReadOnly="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Name" Binding="{Binding Name}" Width="*" />
+                <DataGridTextColumn Header="Source Field" Binding="{Binding SourceField}" Width="*" />
+                <DataGridTextColumn Header="Target Field" Binding="{Binding TargetField}" Width="*" />
+                <DataGridTextColumn Header="Type" Binding="{Binding Type}" Width="100" />
+                <DataGridTextColumn Header="Expression" Binding="{Binding Expression}" Width="*" />
+            </DataGrid.Columns>
+        </DataGrid>
+    </DockPanel>
+</UserControl>

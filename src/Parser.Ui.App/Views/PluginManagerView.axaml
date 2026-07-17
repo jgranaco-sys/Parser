@@ -1,0 +1,32 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:vm="clr-namespace:Parser.Ui.Core.ViewModels;assembly=Parser.Ui.Core"
+             x:Class="Parser.Ui.App.Views.PluginManagerView"
+             x:DataType="vm:PluginManagerViewModel">
+    <DockPanel>
+        <TextBlock DockPanel.Dock="Top" Text="Plugin Manager" FontSize="22" FontWeight="Bold" Margin="0,0,0,12" />
+
+        <DataGrid ItemsSource="{Binding Plugins}"
+                  SelectedItem="{Binding SelectedPlugin}"
+                  AutoGenerateColumns="False"
+                  GridLinesVisibility="All"
+                  IsReadOnly="True">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Name" Binding="{Binding Name}" Width="*" />
+                <DataGridTextColumn Header="Version" Binding="{Binding Version}" Width="100" />
+                <DataGridTextColumn Header="Description" Binding="{Binding Description}" Width="*" />
+                <DataGridCheckBoxColumn Header="Enabled" Binding="{Binding IsEnabled}" Width="80" />
+                <DataGridTemplateColumn Header="Actions" Width="200">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal" Spacing="4">
+                                <Button Content="Enable" Command="{Binding $parent[UserControl].((vm:PluginManagerViewModel)DataContext).EnableCommand}" CommandParameter="{Binding}" />
+                                <Button Content="Disable" Command="{Binding $parent[UserControl].((vm:PluginManagerViewModel)DataContext).DisableCommand}" CommandParameter="{Binding}" />
+                            </StackPanel>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+    </DockPanel>
+</UserControl>

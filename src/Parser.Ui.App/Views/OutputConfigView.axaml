@@ -1,0 +1,35 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:vm="clr-namespace:Parser.Ui.Core.ViewModels;assembly=Parser.Ui.Core"
+             x:Class="Parser.Ui.App.Views.OutputConfigView"
+             x:DataType="vm:OutputConfigViewModel">
+    <StackPanel Spacing="12" MaxWidth="480">
+        <TextBlock Text="Output Configuration" FontSize="22" FontWeight="Bold" />
+
+        <StackPanel Spacing="4">
+            <TextBlock Text="Topic" />
+            <TextBox Text="{Binding Configuration.Topic}" />
+        </StackPanel>
+
+        <StackPanel Spacing="4">
+            <TextBlock Text="QoS (0-2)" />
+            <TextBox Text="{Binding Configuration.QoS}" />
+        </StackPanel>
+
+        <CheckBox Content="Retain" IsChecked="{Binding Configuration.Retain}" />
+
+        <StackPanel Spacing="4">
+            <TextBlock Text="Publish Interval (ms)" />
+            <TextBox Text="{Binding Configuration.PublishInterval}" />
+        </StackPanel>
+
+        <CheckBox Content="Compression" IsChecked="{Binding Configuration.Compression}" />
+
+        <StackPanel Spacing="4">
+            <TextBlock Text="Encoding" />
+            <TextBox Text="{Binding Configuration.Encoding}" />
+        </StackPanel>
+
+        <Button Content="Save" Command="{Binding SaveCommand}" HorizontalAlignment="Left" />
+    </StackPanel>
+</UserControl>

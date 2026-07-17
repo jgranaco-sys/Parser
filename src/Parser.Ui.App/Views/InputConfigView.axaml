@@ -1,0 +1,34 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:vm="clr-namespace:Parser.Ui.Core.ViewModels;assembly=Parser.Ui.Core"
+             x:Class="Parser.Ui.App.Views.InputConfigView"
+             x:DataType="vm:InputConfigViewModel">
+    <StackPanel Spacing="12">
+        <TextBlock Text="Input Configuration" FontSize="22" FontWeight="Bold" />
+        <TextBlock Text="Select input format:" />
+        <ComboBox ItemsSource="{Binding AvailableFormats}" SelectedItem="{Binding SelectedFormat}" Width="200" />
+
+        <Expander Header="JSON Options" IsExpanded="True">
+            <StackPanel Spacing="8" Margin="8">
+                <CheckBox Content="Indented" IsChecked="{Binding JsonOptions.Indented}" />
+                <CheckBox Content="Ignore Case" IsChecked="{Binding JsonOptions.IgnoreCase}" />
+                <CheckBox Content="Ignore Nulls" IsChecked="{Binding JsonOptions.IgnoreNulls}" />
+            </StackPanel>
+        </Expander>
+
+        <Expander Header="CSV Options">
+            <StackPanel Spacing="8" Margin="8">
+                <TextBox Watermark="Delimiter" Text="{Binding CsvOptions.Delimiter}" />
+                <CheckBox Content="Has Header" IsChecked="{Binding CsvOptions.HasHeader}" />
+            </StackPanel>
+        </Expander>
+
+        <Expander Header="TXT Options">
+            <StackPanel Spacing="8" Margin="8">
+                <TextBox Watermark="Pattern" Text="{Binding TxtOptions.Pattern}" />
+            </StackPanel>
+        </Expander>
+
+        <Button Content="Save" Command="{Binding SaveCommand}" HorizontalAlignment="Left" />
+    </StackPanel>
+</UserControl>

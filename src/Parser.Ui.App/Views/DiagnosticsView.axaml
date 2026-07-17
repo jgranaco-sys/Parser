@@ -1,0 +1,26 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:vm="clr-namespace:Parser.Ui.Core.ViewModels;assembly=Parser.Ui.Core"
+             x:Class="Parser.Ui.App.Views.DiagnosticsView"
+             x:DataType="vm:DiagnosticsViewModel">
+    <DockPanel>
+        <StackPanel DockPanel.Dock="Top" Orientation="Horizontal" Spacing="8" Margin="0,0,0,12">
+            <TextBlock Text="Diagnostics" FontSize="22" FontWeight="Bold" VerticalAlignment="Center" />
+            <TextBox Watermark="Filter..." Text="{Binding FilterText}" Width="200" />
+            <Button Content="Refresh" Command="{Binding RefreshCommand}" />
+            <Button Content="Clear" Command="{Binding ClearCommand}" />
+        </StackPanel>
+
+        <DataGrid ItemsSource="{Binding Entries}"
+                  AutoGenerateColumns="False"
+                  GridLinesVisibility="All"
+                  IsReadOnly="True">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Timestamp" Binding="{Binding Timestamp}" Width="180" />
+                <DataGridTextColumn Header="Severity" Binding="{Binding Severity}" Width="100" />
+                <DataGridTextColumn Header="Category" Binding="{Binding Category}" Width="140" />
+                <DataGridTextColumn Header="Message" Binding="{Binding Message}" Width="*" />
+            </DataGrid.Columns>
+        </DataGrid>
+    </DockPanel>
+</UserControl>

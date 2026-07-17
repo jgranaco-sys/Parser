@@ -1,0 +1,33 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:vm="clr-namespace:Parser.Ui.Core.ViewModels;assembly=Parser.Ui.Core"
+             x:Class="Parser.Ui.App.Views.TestingView"
+             x:DataType="vm:TestingViewModel">
+    <Grid ColumnDefinitions="*,*" RowDefinitions="Auto,*">
+        <TextBlock Grid.Row="0" Grid.ColumnSpan="2" Text="Testing" FontSize="22" FontWeight="Bold" Margin="0,0,0,12" />
+
+        <DockPanel Grid.Row="1" Grid.Column="0" Margin="0,0,8,0">
+            <StackPanel DockPanel.Dock="Top" Orientation="Horizontal" Spacing="8" Margin="0,0,0,8">
+                <TextBlock Text="Payload" FontWeight="SemiBold" VerticalAlignment="Center" />
+                <Button Content="Run Test" Command="{Binding RunTestCommand}" />
+            </StackPanel>
+            <TextBox AcceptsReturn="True"
+                     TextWrapping="NoWrap"
+                     FontFamily="Consolas,Cascadia Code,monospace"
+                     Text="{Binding PayloadInput}" />
+        </DockPanel>
+
+        <DockPanel Grid.Row="1" Grid.Column="1" Margin="8,0,0,0">
+            <TextBlock DockPanel.Dock="Top" Text="Results" FontWeight="SemiBold" Margin="0,0,0,8" />
+            <StackPanel DockPanel.Dock="Top" Orientation="Horizontal" Spacing="12" Margin="0,0,0,8">
+                <TextBlock Text="{Binding Result.Success, StringFormat='Success: {0}'}" />
+                <TextBlock Text="{Binding Result.ParseTimeMs, StringFormat='Time: {0} ms'}" />
+            </StackPanel>
+            <TextBox AcceptsReturn="True"
+                     IsReadOnly="True"
+                     TextWrapping="NoWrap"
+                     FontFamily="Consolas,Cascadia Code,monospace"
+                     Text="{Binding Result.GeneratedOutput}" />
+        </DockPanel>
+    </Grid>
+</UserControl>

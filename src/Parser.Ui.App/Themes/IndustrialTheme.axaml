@@ -1,0 +1,17 @@
+<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <!-- Industrial color palette -->
+    <Color x:Key="IndustrialBackgroundColor">#1B222A</Color>
+    <Color x:Key="IndustrialSurfaceColor">#232B34</Color>
+    <Color x:Key="IndustrialAccentColor">#2E7D9A</Color>
+    <Color x:Key="IndustrialAmberColor">#FFC107</Color>
+
+    <SolidColorBrush x:Key="IndustrialBackgroundBrush" Color="{StaticResource IndustrialBackgroundColor}" />
+    <SolidColorBrush x:Key="IndustrialSurfaceBrush" Color="{StaticResource IndustrialSurfaceColor}" />
+    <SolidColorBrush x:Key="IndustrialAccentBrush" Color="{StaticResource IndustrialAccentColor}" />
+
+    <!-- Mapping status colors -->
+    <SolidColorBrush x:Key="MappedColor">#28A745</SolidColorBrush>
+    <SolidColorBrush x:Key="PartialColor">#FFC107</SolidColorBrush>
+    <SolidColorBrush x:Key="MissingColor">#DC3545</SolidColorBrush>
+</ResourceDictionary>
